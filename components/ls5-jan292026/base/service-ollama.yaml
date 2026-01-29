@@ -1,0 +1,20 @@
+# Ollama Server Service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: ls5-jan292026-ollama
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ls5-jan292026-ollama
+    app.kubernetes.io/part-of: ls5-jan292026
+    app.kubernetes.io/component: ollama
+  name: ls5-jan292026-ollama
+spec:
+  ports:
+    - name: http
+      port: 11434
+      protocol: TCP
+      targetPort: 11434
+  selector:
+    app.kubernetes.io/instance: ls5-jan292026-ollama
+  type: ClusterIP
